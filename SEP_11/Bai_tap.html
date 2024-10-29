@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="text"></div>
+    <script>
+        const h1 = document.createElement('h1')
+        h1.innerText='Lập trình Web'
+        h1.className='demo test'
+        h1.style.color='#D8849A' 
+        h1.style='color: pink; font-size:25px; background-color: #F2E7E3'
+        document.body.appendChild(h1)
+        const root=document.getElementById('root')
+        root.appendChild(h1)
+
+        const p = document.createElement('p')
+        p.innerText='Hello!!!'
+        p.style.color='#D8849A'
+        p.style='color:6F514A; background-color:#DAB8AC'
+        document.body.appendChild(p)
+        const text = document.getElementById('text')
+        text.appendChild(p)
+
+
+    </script>
+</body>
+</html>

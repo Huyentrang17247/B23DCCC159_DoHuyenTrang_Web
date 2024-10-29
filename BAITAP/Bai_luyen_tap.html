@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Thông tin sinh viên</h2>
+    <div id="dataInput">
+        <label>Mã sinh viên: <input id="id" required></label>
+        <label>Họ tên: <input id="name" required></label>
+        <label>Giới tính: 
+            <select id="gender">
+                <option>Nam</option>
+                <option>Nữ</option>
+            </select>
+        </label>
+        <label>Ngày sinh: <input type="date" id="birthday" required></label>
+        <label>Quê quán: <input id="hometown" required></label>
+        <button type="button" onclick="saveData()">Lưu</button>
+    </div><br><br>
+    <div id="savedData">
+        <table border="1px">
+            <tr>
+                <th>Mã sinh viên</th>
+                <th>Họ tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Quê quán</th>
+                <th>Hành động</th>
+            </tr>
+            <tr id="row">
+                <td colspan="6"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function saveData() {
+            const id = document.getElementById('id').value;
+            const name = document.getElementById('name').value;
+            const gender = document.getElementById('gender').value;
+            const birthday = document.getElementById('birthday').value;
+            const hometown = document.getElementById('hometown').value;
+            const studentData = {
+                id,
+                name,
+                gender,
+                birthday,
+                hometown
+            };
+            localStorage.setItem('userData', JSON.stringify(studentData));
+            displayData();
+        }
+
+        function displayData() {
+            const savedData = localStorage.getItem('userData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                const row = `
+                    <td>${data.id}</td>
+                    <td>${data.name}</td>
+                    <td>${data.gender}</td>
+                    <td>${data.birthday}</td>
+                    <td>${data.hometown}</td>
+                    <button onclick="removeData()">Xoá</button>
+                    <button onclick="updateData()">Sửa</button>
+                `
+                document.getElementById('row').innerHTML = row;
+            }
+        }
+        function removeData() {
+            localStorage.removeItem('userData');
+            document.getElementById('row').innerHTML = '';
+        }
+
+        function updateData() {
+            const savedData = localStorage.getItem('userData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('id').value = data.id;
+                document.getElementById('name').value = data.name;
+                document.getElementById('gender').value = data.gender;
+                document.getElementById('birthday').value = data.birthday;
+                document.getElementById('hometown').value = data.hometown;
+            }
+        }
+        window.onload = displayData;
+    </script>
+
+</body>
+</html>

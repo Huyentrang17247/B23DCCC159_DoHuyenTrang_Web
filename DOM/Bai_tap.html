@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="title">Hello!!!</h2>
+    <div id="text">UDU PTIT</div>
+    <ul id="list"></ul>
+    <div id="remove-me">I love you bấy bì:)))</div>
+    <img id="image" src="https://i.pinimg.com/564x/82/6f/f9/826ff9445da758db9e6c6ffd004c04c6.jpg"><br><br>
+    <button id="btn">Click me</button>
+    <p>Hello world:>>></p>
+    <p>Trang cute:>></p>
+    <div class='item'>I love Ptit</div>
+    <div id="table-container"></div>
+    <script>
+        //Thay đổi nội dung của một phần tử
+        document.getElementById('title').innerHTML="Hello, DOM!"
+
+        //Thay đổi màu sắc của phần tử
+        document.getElementById('text').style.color="red"
+
+        //Thêm phần tử mới vào DOM
+        const newListItem = document.createElement("li");
+        newListItem.textContent = "Hé lu !!!";
+        document.getElementById("list").appendChild(newListItem);
+
+        //Xóa phần tử khỏi DOM
+        document.getElementById("remove-me").remove();
+
+        //Thay đổi thuộc tính của phần tử
+        document.getElementById("image").src="https://i.pinimg.com/474x/fe/fe/fb/fefefb0971cbb828bfeeea8c6ea7ca1a.jpg"
+
+        //Xử lý sự kiện click
+        document.getElementById("btn").addEventListener('click', function(){
+            alert("Hi!!!")
+        });
+
+        //Thay đổi nội dung của nhiều phần tử
+        document.querySelectorAll("p").forEach(p => p.textContent="Updated paragraph");
+
+        //Tạo 1 bảng động
+        const table = document.createElement("table");
+        for (let i = 0; i < 3; i++) {
+            const row = table.insertRow();
+            for (let j = 0; j < 3; j++) {
+                const cell = row.insertCell();
+                cell.textContent = `Hàng ${i+1} Cột ${j+1},`;
+            }
+        };
+        document.getElementById("table-container").appendChild(table);
+
+        //Đếm số lượng phần tử trong DOM
+        const a = document.querySelectorAll('div').length;
+        document.write('Số lượng: ' + a)
+
+        //Thay đổi nội dung bằng cách thao tác với Class
+        document.querySelectorAll('.item').forEach(item => item.textContent="Updated item");
+    
+    </script>
+</body>
+</html>

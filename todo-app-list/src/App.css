@@ -1,0 +1,25 @@
+.General{
+  display: flex;
+  align-items:center;
+  padding-top: 5px;
+}
+.General .title{
+  font-size:15px;
+}
+.General .due {
+  font-size:15px;
+}
+.app{
+  max-width: 90%;
+  margin: auto;
+  padding: 20px;
+}
+.content p{
+  margin:5px;
+  padding: 0;
+  color:rgb(224, 143, 213);
+}
+.content p i{
+  padding: 20px;
+  text-align:center;
+}
