@@ -1,0 +1,43 @@
+/* App.css */
+/* Các kiểu dáng cho ToDoItem */
+.ToDoItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ToDoItem .ItemContent {
+  flex: 1;
+}
+
+.ToDoItem .Title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ToDoItem .DueDate {
+  font-size: 14px;
+  color: #888;
+}
+
+.ToDoItem .Action {
+  display: flex;
+  align-items: center;
+}
+
+.ToDoItem .Action .anticon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Các kiểu dáng cho ToDoList */
+.ToDoList {
+  margin: 0 auto;
+  max-width: 600px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
