@@ -8,7 +8,7 @@ const ToDoList = () => {
     const [todos, setTodos] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/todos')
+        axios.get('/todos')
             .then(response => {
                 setTodos(response.data);
             })
@@ -17,7 +17,7 @@ const ToDoList = () => {
 
     const addTodo = () => {
         const newTodo = { title: "New Task", dueDate: "2024-10-10 09:00" };
-        axios.post('http://localhost:3000/api/todos', newTodo)
+        axios.post('/todos', newTodo)
             .then(response => {
                 setTodos([...todos, response.data]);
             })
@@ -25,7 +25,7 @@ const ToDoList = () => {
     };
 
     const deleteTodo = (id) => {
-        axios.delete(`http://localhost:3000/api/todos/${id}`)
+        axios.delete(`/todos/${id}`)
             .then(() => {
                 setTodos(todos.filter(todo => todo.id !== id));
             })
@@ -34,7 +34,7 @@ const ToDoList = () => {
 
     const updateTodo = (id) => {
         const updatedData = { title: "Updated Task", dueDate: "2024-11-11 10:00" }; // Ví dụ cập nhật
-        axios.put(`http://localhost:3000/api/todos/${id}`, updatedData)
+        axios.put(`/todos/${id}`, updatedData)
             .then(response => {
                 setTodos(todos.map(todo => (todo.id === id ? response.data : todo)));
             })
@@ -50,7 +50,7 @@ const ToDoList = () => {
                         key={todo.id}
                         id={todo.id}
                         title={todo.title}
-                        dueDate={todo.dueDate}
+                        dueDate={todo.due_date}
                         onDelete={deleteTodo}
                         onUpdate={updateTodo}
                     />
